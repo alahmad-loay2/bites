@@ -1,0 +1,52 @@
+.home{
+  padding-bottom: 40px;
+}
+
+.canvas-container {
+    width: 400px;  
+    height: 400px; 
+    overflow: hidden; 
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hero-text {
+    max-width: 400px;
+    color: var(--text-color);
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 15px;
+    margin: 0 20px;
+
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    border-radius: 10px; 
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0.2, 0.3);
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .callToAction{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+@media (max-width: 480px) {
+  .canvas-container {
+    width: 280px;  
+    height: 280px; 
+  }
+}
