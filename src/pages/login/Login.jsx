@@ -1,28 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./login-register.css";
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from "../../firebase/config";
 
-const Login = () => {
+const Login = ({setLoading}) => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("")
+  const [pass, setPass] = useState("")
+  const [error, setError] = useState(false)
 
+    const handleLogIn = async (e) => {
+        e.preventDefault()
+        setError(false)
+        try {
+        await signInWithEmailAndPassword(auth, email, pass)
+        setLoading(true);
+        navigate("/")
+        } catch(err){
+            setError(true)
+        }
+    };
   return (
     <div className="login-container">
       <div className="glass-card">
         <h2>Login</h2>
 
-        <div className="alert alert-dark">
+        {error && <div className="alert alert-dark">
           Wrong username or password
-        </div>
+        </div> }
 
-        <form>
+        <form onSubmit={handleLogIn}>
           <div className="label-input">
             <label>Email</label>
-            <input type="email" placeholder="Enter email" required />
+            <input type="email" placeholder="Enter email"
+            onChange={(e) => setEmail(e.target.value)} required />
           </div>
 
           <div className="label-input">
             <label>Password</label>
-            <input type="password" placeholder="Enter password" required />
+            <input type="password" placeholder="Enter password" 
+            onChange={(e) => setPass(e.target.value)} required />
           </div>
           <button type="submit" className="btn btn-dark">Login</button>
         </form>

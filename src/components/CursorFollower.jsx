@@ -37,14 +37,14 @@ const CursorFollower = () => {
         top: position.y ,
         width: `${size}px`,
         height: `${size}px`,
-        background: "var(--primary-color)",
+        background: "var(--secondary-color)",
         borderRadius: "50%",
         pointerEvents: "none",
-        boxShadow: `0 0 10px var(--accent-color)`,
+        boxShadow: `0 0 10px var(--text-color)`,
         mixBlendMode: "exclusion",
         transform: `scale(${size})`,
         transition: "transform 0.1s ease-in-out", 
-        zIndex: 1
+        zIndex: 1000
       }}
     />
   );
