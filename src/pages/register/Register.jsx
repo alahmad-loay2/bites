@@ -21,7 +21,8 @@ const Register = ({setLoading}) => {
             const user = auth.currentUser;
             await setDoc(doc(db, "users", user.uid), {
                 email,
-                username
+                username,
+                paid: false
             });
             setLoading(true);
             navigate(`/`);

@@ -21,12 +21,12 @@ const Nav = () => {
                 <span>loading</span>
             ) : userInfo ? (
 
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="dropdown">
+                        <button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {userInfo.username}
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><button onClick={logOut} class="dropdown-item" type="button">logout</button></li>
+                        <ul className="dropdown-menu">
+                            <li><button onClick={logOut} className="dropdown-item" type="button">logout</button></li>
                         </ul>
                     </div>
 

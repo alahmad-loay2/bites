@@ -6,11 +6,11 @@
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
-    padding: 30px;
+    gap: 50px;
+    padding: 40px;
   }
   
   nav img {
@@ -75,6 +75,10 @@ nav {
     animation: bounce 1.5s infinite ease-in-out;
   }
   
+  .divider svg {
+    color: var(--accent-color);
+  }
+
   @keyframes bounce {
     0%, 100% {
       transform: translateY(-2px);
@@ -110,4 +114,8 @@ nav {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+
+  .dropdown-toggle {
+    background-color: var(--primary-color) !important;
+    border: none !important;
+  }

@@ -17,8 +17,8 @@ html {
   --primary-color:#9bb9a0;
   --secondary-color: white;
   --text-color: black;
-  --accent-color: #5E3D50;
-
+  --accent-color: #d69c8f;
+  --accent-two-color: #5E3D50;
   --gradient-start: #9bb9a0; 
   --gradient-end: #f0f5f1;
 }
