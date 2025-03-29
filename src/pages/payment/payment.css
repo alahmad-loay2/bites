@@ -1,3 +1,9 @@
+.payment-plans-page{
+    background-image: url("/images/pattern-wallpaper.png");background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} 
+
 .page-title{
     display: flex;
     flex-direction: column;
@@ -6,22 +12,29 @@
 .plans-container{
     display: flex;
     justify-content: center;
-    gap: 2rem;
-
+    gap: 3.5rem;
+    padding: 35px;
 }
-.plan-card {
-    display: flex;
-    background-color: rgba(202, 206, 254, 0.63);
+.other-plan{
+    background-color: #F6F2E9;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.34);
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px;
-    height: 280px;
     width: 350px;
+    height: 400px;
     position: relative;
     overflow: hidden;
-    border: 2px solid #6e2665; 
+    transition: all 0.3s ease;
+}
+.current-plan {
+    background-color:#A8D7A7; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.34);
+    border-radius: 10px;
+    padding: 10px;
+    width: 350px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
     transition: all 0.3s ease;
 }
 .plan-card::before {
@@ -41,22 +54,46 @@
 
 .plan-card:hover {
     transform: scale(1.05);
-    box-shadow: 5px 5px 0 #6e2665; /* change ugly color*/ 
+    box-shadow: 5px 5px 0 #A8D7A7; 
+}
+.payment-details{
+    display: flex;
+    margin-top: 40px;
+    gap: 1rem;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+.icon{
+    padding-right: 10px;
+    color: rgb(19, 169, 57);
 }
 .buttons{
+    margin-top: 30px;
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 1rem;
 }
+.current-plan .buttons button {
+    background-color: #F6F2E9;
+    color: #787878;
+}
+.current-plan .buttons button:hover{
+    color: #F6F2E9;
+}
 .buttons button{
-    border-radius: 10px;
+    color: white;
+    width: 80%;
+    border-radius: 30px;
     border: 0;
     padding: 7px;
-    background-color: rgb(254, 255, 234);
+    background-color: #A8D7A7;
 }
 .buttons button:hover{
-    background-color: #6e2665;
+    background-color: #979797;
     transition: all 0.5s ease;
 }
- 
+.hr-divider{
+    opacity: 100;
+}

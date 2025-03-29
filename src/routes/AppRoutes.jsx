@@ -6,8 +6,9 @@ import Recipes from '../pages/recipes/Recipes'
 import Home from '../pages/home/Home'
 import MainLayout from './MainLayout'
 import Register from '../pages/register/Register'
-import Payment from '../pages/Payment/Payment'
+import Payment from '../pages/payment/Payment'
 import Loading from '../components/Loading'
+import Billing from '../pages/payment/BillingForm'
 import Steps from '../pages/steps/Steps'
 import ProtectedRoute from './ProtectedRoute'
 import Unauthorized from '../pages/unauthorized/Unauthorized'
@@ -29,6 +30,7 @@ const AppRoutes = () => {
                     <Route path='/recipes/steps/:id' element={<Steps />} />
                     </Route>
                     <Route path='/payment' element={<Payment />}/>
+                    <Route path='/billing' element={<Billing/>}/>
                 </Route>
                 <Route path='/login' element={<Login setLoading={setLoading}/>} />
                 <Route path='/register' element={<Register setLoading={setLoading}/>}/>
