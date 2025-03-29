@@ -17,12 +17,12 @@ const Payment = () => {
   const handleBilling = () => {
     navigate('/billing'); 
   };
+
   return (
     <div className="background-container">
-    <div className="payment-plans-page">
       <div className="page-title">
         <h1>Get your Plan</h1>
-        <p>Choose the plan that suits you best and start your cooking journey today!</p>  {/*change later */}
+        <p>Choose the plan that suits you best and start your cooking journey today!</p> 
       </div>
 
       <div className="plans-container">
@@ -64,7 +64,6 @@ const Payment = () => {
           </ul>
         </div>
       </div>
-    </div>
     </div>
   );
 };

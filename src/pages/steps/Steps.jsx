@@ -31,14 +31,14 @@ const Steps = () => {
             <div className='ingredients-container'>
                 <h2>{recipe.title} - Steps</h2>
                 <ul>
-                {recipe.ingredients.map((ingredient, index) => (
+                {recipe.ingredients?.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                 ))}
                 </ul>
             </div>
             
             <div className='steps-container'>
-                {recipe.steps.map((step, index) => (
+                {recipe.steps?.map((step, index) => (
                     <div>
                         {step}
                     </div>

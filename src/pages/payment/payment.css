@@ -1,42 +1,38 @@
-.payment-plans-page{
+.background-container {
     background-image: url("/images/pattern-wallpaper.png");background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-} 
+}
 
 .page-title{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    padding: 0 10px;
 }
 .plans-container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 3.5rem;
-    padding: 35px;
+    padding: 35px 20px;
 }
+
+.plan-card {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.34);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
 .other-plan{
     background-color: #F6F2E9;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.34);
-    border-radius: 10px;
-    padding: 10px;
-    width: 350px;
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
 }
+
 .current-plan {
     background-color:#A8D7A7; 
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.34);
-    border-radius: 10px;
-    padding: 10px;
-    width: 350px;
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
 }
+
 .plan-card::before {
     content: '';
     position: absolute;
@@ -47,6 +43,7 @@
     left: -100%;
     transition: all 0.5s ease;
 }
+
 .plan-card:hover::before {
     top: 100%;
     left: 100%;
@@ -56,6 +53,7 @@
     transform: scale(1.05);
     box-shadow: 5px 5px 0 #A8D7A7; 
 }
+
 .payment-details{
     display: flex;
     margin-top: 40px;

@@ -12,6 +12,15 @@ nav {
     gap: 50px;
     padding: 40px;
   }
+
+  nav .hamburger-icon {
+    display: none;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    gap: 20px;
+  }
   
   nav img {
     height: 1.5rem;
@@ -119,3 +128,35 @@ nav {
     background-color: var(--primary-color) !important;
     border: none !important;
   }
+
+
+@media(max-width: 768px){
+  nav .hamburger-icon {
+    display: block;
+  }
+
+  .nav-wrapper{
+    display: none;
+  }
+  nav {
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 15px;
+  }
+
+  .offcanvas{
+    height: fit-content !important;
+    padding: 20px;
+  }
+
+  .offcanvas-body {
+    background-color: var(--secondary-color);
+    border-top: var(--accent-color) 1px solid;
+  }
+
+  .offcanvas-body ul {
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+  }
+}

@@ -129,6 +129,12 @@
     opacity: 1;
 }
 
+.get-started {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .pay-btn {
     margin-top: 40px;
 }
@@ -139,3 +145,4 @@
     justify-content: center;
     padding-bottom: 40px;
 }
+
