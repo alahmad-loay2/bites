@@ -12,6 +12,8 @@ import Billing from '../pages/payment/BillingForm'
 import Steps from '../pages/steps/Steps'
 import ProtectedRoute from './ProtectedRoute'
 import Unauthorized from '../pages/unauthorized/Unauthorized'
+import Admin from '../pages/admin/Admin'
+import AdminProtected from './AdminProtected'
 
 const AppRoutes = () => {
     const [loading, setLoading] = useState(false);
@@ -28,6 +30,9 @@ const AppRoutes = () => {
                     <Route path='/recipes' element={<Recipes />} />
                     <Route element={<ProtectedRoute />}>
                     <Route path='/recipes/steps/:id' element={<Steps />} />
+                    </Route>
+                    <Route element={<AdminProtected />}>
+                    <Route path='/admin' element={<Admin />}/>
                     </Route>
                     <Route path='/payment' element={<Payment />}/>
                     <Route path='/billing' element={<Billing/>}/>

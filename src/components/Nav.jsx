@@ -22,6 +22,7 @@ const Nav = () => {
                     <Link to='/' className={location.pathname === "/" ? "active" : ""}>Home</Link>
                     <Link to='/recipes' className={location.pathname === "/recipes" ? "active" : ""}>Recipes</Link>
                     <Link to='/payment' className={location.pathname === "/payment" ? "active" : ""}>Plans</Link>
+                    {userInfo?.isAdmin && <Link to='/admin' className={location.pathname === "/admin" ? "active" : ""}>Admin</Link>}
                 </ul>
 
                 {loading ? (
@@ -49,6 +50,7 @@ const Nav = () => {
                         <li><Link to='/' className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
                         <li><Link to='/recipes' className={location.pathname === "/recipes" ? "active" : ""}>Recipes</Link></li>
                         <li><Link to='/payment' className={location.pathname === "/payment" ? "active" : ""}>Plans</Link></li>
+                        {userInfo?.isAdmin && <li><Link to='/admin' className={location.pathname === "/admin" ? "active" : ""}>Admin</Link></li>}
                     </ul>
 
                     {loading ? (
