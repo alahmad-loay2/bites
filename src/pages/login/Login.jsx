@@ -4,7 +4,7 @@ import "./login-register.css";
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from "../../firebase/config";
 
-const Login = ({setLoading}) => {
+const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [pass, setPass] = useState("")
@@ -15,7 +15,6 @@ const Login = ({setLoading}) => {
         setError(false)
         try {
         await signInWithEmailAndPassword(auth, email, pass)
-        setLoading(true);
         navigate("/")
         } catch(err){
             setError(true)

@@ -86,7 +86,7 @@ const Home = () => {
           </Canvas>
         </div>
         <div className='callToAction-text'>
-          <p>Get your <span className='accent'>vendor</span> and lets start working</p>
+          <p>Get your <span>vendor</span> and lets start working</p>
           <Link to='/recipes'><button className="btn btn-dark">Get Started!</button></Link>
         </div>
       </div>

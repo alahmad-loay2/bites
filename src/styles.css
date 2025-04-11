@@ -68,6 +68,31 @@ nav {
   .login::after {
     height: 0;
   }
+
+  .account-loading {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--accent-two-color);
+    background-color: var(--primary-color);
+}
+
+.loading-icon {
+    animation: spin 1s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
   
   .divider {
     padding: 10px;
@@ -95,33 +120,6 @@ nav {
     50% {
       transform: translateY(2px);
     }
-  }
-
-  .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-  }
-  
-  .spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid #fff;
-    border-top: 4px solid #4caf50;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
   }
 
   .dropdown-toggle {

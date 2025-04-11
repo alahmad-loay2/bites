@@ -43,9 +43,6 @@ const RecipeCard = ({id, img, title, cuisine }) => {
     <div className="recipe-card">
       <div className="image-container">
         <img src={img} alt={title} />
-        <div className="hover-text">
-          <p>Get 3D Scene</p>
-        </div>
       </div>
       <div className="recipe-content">
         <h5>{title}</h5>

@@ -5,7 +5,7 @@ import { auth, db } from "../../firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
-const Register = ({setLoading}) => {
+const Register = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,10 +21,8 @@ const Register = ({setLoading}) => {
             const user = auth.currentUser;
             await setDoc(doc(db, "users", user.uid), {
                 email,
-                username,
-                paid: false
+                username
             });
-            setLoading(true);
             navigate(`/`);
         } catch (err) {
             const friendlyMessage = getFriendlyErrorMessage(err.code); 

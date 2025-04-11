@@ -1,15 +1,16 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '/images/logo.png'
 import getUserInfo from "../firebase/getUserInfo";
-import { logOut } from '../firebase/getUserInfo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Nav = () => {
     const location = useLocation()
+    const navigate = useNavigate()
     const { userInfo, loading } = getUserInfo();
-
+    
+      
     return (
         <nav>
             <img src={logo} alt="logo.png" />
@@ -22,20 +23,15 @@ const Nav = () => {
                     <Link to='/' className={location.pathname === "/" ? "active" : ""}>Home</Link>
                     <Link to='/recipes' className={location.pathname === "/recipes" ? "active" : ""}>Recipes</Link>
                     <Link to='/payment' className={location.pathname === "/payment" ? "active" : ""}>Plans</Link>
-                    {userInfo?.isAdmin && <Link to='/admin' className={location.pathname === "/admin" ? "active" : ""}>Admin</Link>}
+                    {userInfo?.isAdmin && <Link to='/admin/recipes'>Admin</Link>}
                 </ul>
 
                 {loading ? (
                     <span>loading</span>
                 ) : userInfo ? (
-                    <div className="dropdown">
-                        <button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-dark" onClick={() => navigate("/account")} type="button">
                             {userInfo.username}
                         </button>
-                        <ul className="dropdown-menu">
-                            <li><button onClick={logOut} className="dropdown-item" type="button">logout</button></li>
-                        </ul>
-                    </div>
                 ) :
                     <Link to='/login' className='login'><button className='btn btn-dark'>Log In</button></Link>
                 }
@@ -50,20 +46,15 @@ const Nav = () => {
                         <li><Link to='/' className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
                         <li><Link to='/recipes' className={location.pathname === "/recipes" ? "active" : ""}>Recipes</Link></li>
                         <li><Link to='/payment' className={location.pathname === "/payment" ? "active" : ""}>Plans</Link></li>
-                        {userInfo?.isAdmin && <li><Link to='/admin' className={location.pathname === "/admin" ? "active" : ""}>Admin</Link></li>}
+                        {userInfo?.isAdmin && <li><Link to='/admin/recipes'>Admin</Link></li>}
                     </ul>
 
                     {loading ? (
                         <span>Loading...</span>
                     ) : userInfo ? (
-                        <div className="dropdown mt-3">
-                            <button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button className="btn btn-dark" type="button" onClick={() => navigate("/account")}>
                                 {userInfo.username}
                             </button>
-                            <ul className="dropdown-menu">
-                                <li><button onClick={logOut} className="dropdown-item" type="button">Logout</button></li>
-                            </ul>
-                        </div>
                     ) : (
                         <Link to='/login' className='login'><button className='btn btn-dark mt-3'>Log In</button></Link>
                     )}

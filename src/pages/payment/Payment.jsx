@@ -1,22 +1,75 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Payment.css"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import getUserInfo from "../../firebase/getUserInfo";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../../firebase/config";
 
 
-const Payment = () => {
-  const navigate = useNavigate();
-  
+const Payment = () => {  
   const { userInfo, loading } = getUserInfo();
+  const navigate = useNavigate()
 
-  if (loading) return <p>Loading...</p>; 
+  const savePayment = async () => {
+      try {
+        const user = auth.currentUser;
+        const userRef = doc(db, "users", user.uid);
+        await setDoc(userRef, { paid: true }, { merge: true });
+        window.location.reload();
+      } catch (err) {
+        console.error("Failed");
+    } 
+  };
+  
+
+  useEffect(() => {
+    if (window.Paddle) {
+      window.Paddle.Environment.set("sandbox");
+      window.Paddle.Initialize({ 
+        token: "test_0b97b9030ee23f48f53bc9be146",
+        eventCallback: function(event){
+          if (event.name === "checkout.completed") {
+           savePayment(event)
+          }
+        }
+      });
+    } else {
+      console.error("Error");
+    }
+  }, []);
+
+  if (loading) return(
+    <div className="background-container d-flex justify-content-center">
+    <div className="spinner-border" role="status" style={{ color: "var(--accent-color)" }}>
+    </div>
+  </div>
+  ); 
   const isPaidUser = userInfo?.paid || false;
 
-  const handleBilling = () => {
-    navigate('/billing'); 
+  const handlePaddlePayment = () => {
+    if (!userInfo) {
+      navigate("/login")
+      return;
+    }
+    if (window.Paddle) {
+      window.Paddle.Checkout.open({
+        items: [
+          {
+            priceId: "pri_01jrhrc77vrh690c3aba39nrkc", 
+            quantity: 1
+          }
+        ],
+        customer: {
+          email: userInfo.email
+        },
+    });
+    } else {
+      alert("Paddle error.");
+    }
   };
+ 
 
   return (
     <div className="background-container">
@@ -32,11 +85,8 @@ const Payment = () => {
           <strong>0$</strong>
           <hr className="hr-divider" />
           <div className="buttons">
-          <button 
-                onClick={isPaidUser ? undefined : handleBilling} 
-                disabled={isPaidUser}
-              >
-                {isPaidUser ? "Get Plan" : "Current Plan"}
+          <button disabled>
+                {isPaidUser ? "you're a paid customer!" : "Current Plan"}
               </button>
           </div>
           
@@ -49,10 +99,10 @@ const Payment = () => {
 
         <div className={`plan-card ${isPaidUser ? "current-plan" : "other-plan"}`}>
           <h3>Paid Plan</h3>
-          <p><strong>100$</strong> one-time</p>
+          <p><strong>120$</strong> one-time</p>
           <hr className="hr-divider" />
           <div className="buttons">
-          <button onClick={!isPaidUser ? handleBilling : undefined} disabled={isPaidUser}>
+          <button onClick={!isPaidUser ? handlePaddlePayment : undefined} disabled={isPaidUser}>
                 {isPaidUser ? "Current Plan" : "Get Plan"}
               </button>
           </div>

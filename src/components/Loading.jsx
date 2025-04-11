@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { ChefHat } from 'lucide-react';
+import React from 'react'
 
-const Loading = () => {
-  const [show, setShow] = useState(true);
+const Loading = ({text}) => {
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShow(false), 2000);
+    return (
+        <div className="account-loading">
+            <ChefHat className="loading-icon" size={40} />
+            <p>{text}</p>
+        </div>
+    );
 
-    return () => clearTimeout(timer);
-  }, []);
+}
 
-  if (!show) return null;
-
-  return (
-    <div className="loading-overlay">
-      <div className="spinner"></div>
-    </div>
-  );
-};
-
-export default Loading;
+export default Loading

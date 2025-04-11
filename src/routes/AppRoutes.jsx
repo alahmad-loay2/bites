@@ -6,24 +6,19 @@ import Recipes from '../pages/recipes/Recipes'
 import Home from '../pages/home/Home'
 import MainLayout from './MainLayout'
 import Register from '../pages/register/Register'
-import Payment from '../pages/payment/Payment'
-import Loading from '../components/Loading'
-import Billing from '../pages/payment/BillingForm'
+import Payment from '../pages/Payment/Payment'
 import Steps from '../pages/steps/Steps'
 import ProtectedRoute from './ProtectedRoute'
 import Unauthorized from '../pages/unauthorized/Unauthorized'
 import Admin from '../pages/admin/Admin'
 import AdminProtected from './AdminProtected'
+import AdminUsers from '../pages/admin/AdminUsers'
+import Account from '../pages/account/Account'
+import AccountProtected from './AccountProtected'
 
 const AppRoutes = () => {
-    const [loading, setLoading] = useState(false);
-    useEffect(() => {
-        setLoading(true);
-        setTimeout(() => setLoading(false), 2000);
-    }, []);
     return (
         <BrowserRouter>
-         {loading && <Loading />}
             <Routes>
                 <Route element={<MainLayout />}>
                     <Route path='/' element={<Home />} />
@@ -31,14 +26,19 @@ const AppRoutes = () => {
                     <Route element={<ProtectedRoute />}>
                     <Route path='/recipes/steps/:id' element={<Steps />} />
                     </Route>
-                    <Route element={<AdminProtected />}>
-                    <Route path='/admin' element={<Admin />}/>
-                    </Route>
                     <Route path='/payment' element={<Payment />}/>
-                    <Route path='/billing' element={<Billing/>}/>
                 </Route>
-                <Route path='/login' element={<Login setLoading={setLoading}/>} />
-                <Route path='/register' element={<Register setLoading={setLoading}/>}/>
+                <Route path='/login' element={<Login/>} />
+                <Route path='/register' element={<Register/>}/>
+                <Route element={<AdminProtected />}>
+                    <Route path='/admin/recipes' element={<Admin />}/>
+                </Route>
+                <Route element={<AdminProtected />}>
+                    <Route path='/admin/users' element={<AdminUsers />}/>
+                </Route>
+                <Route element={<AccountProtected />}>
+                <Route path='/account' element={<Account />} />
+                </Route>
                 <Route path='*' element={<NotFound />} />
                 <Route path='/unauthorized' element={<Unauthorized />} />
             </Routes>
