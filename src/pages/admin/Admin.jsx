@@ -10,6 +10,9 @@ import { useNavigate } from 'react-router-dom';
 const Admin = () => {
     const[steps, setSteps] = useState([''])
     const [title, setTitle] = useState("");
+    const [totalTime, setTotalTime] = useState(null)
+    const[prepTime, setPrepTime] = useState(null)
+    const [description, setDescription] = useState("")
     const[ingredients, setIngredients] = useState([''])
     const [img, setImg] = useState(null);
     const [cuisine, setCuisine] = useState("")
@@ -65,7 +68,7 @@ const Admin = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        if(!title || !ingredients[0] || !steps[0] || !img || !cuisine){
+        if(!title || !ingredients[0] || !steps[0] || !img || !cuisine || !totalTime || !description || !prepTime){
             alert("missing")
             return
         }
@@ -75,6 +78,9 @@ const Admin = () => {
             const docRef = await addDoc(collection(db, "recipes"), {
                 cuisine,
                 paid,
+                totalTime,
+                prepTime,
+                description,
                 title,
                 ingredients,
                 steps, 
@@ -126,6 +132,39 @@ return (
                 onChange={(e) => setCuisine(e.target.value)}
                 className="form-input"
                 placeholder="Enter cuisine type"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Description</label>
+              <input
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="form-input"
+                placeholder="Enter Description"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Total Time</label>
+              <input
+                type="number"
+                value={totalTime}
+                onChange={(e) => setTotalTime(e.target.value)}
+                className="form-input"
+                placeholder="total time in minutes"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Prep Time</label>
+              <input
+                type="number"
+                value={prepTime}
+                onChange={(e) => setPrepTime(e.target.value)}
+                className="form-input"
+                placeholder="prep time in minutes"
               />
             </div>
 
