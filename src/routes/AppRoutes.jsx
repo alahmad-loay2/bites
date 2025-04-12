@@ -24,12 +24,12 @@ const AppRoutes = () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/recipes' element={<Recipes />} />
                     <Route element={<ProtectedRoute />}>
-                    <Route path='/recipes/steps/:id' element={<Steps />} />
                     </Route>
                     <Route path='/payment' element={<Payment />}/>
                 </Route>
                 <Route path='/login' element={<Login/>} />
                 <Route path='/register' element={<Register/>}/>
+                <Route path='/recipes/steps/:id' element={<Steps />} />
                 <Route element={<AdminProtected />}>
                     <Route path='/admin/recipes' element={<Admin />}/>
                 </Route>

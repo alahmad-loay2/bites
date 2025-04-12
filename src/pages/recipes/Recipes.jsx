@@ -24,7 +24,10 @@ const Recipes = () => {
     const [input, setInput] = useState("")
 
     const onSearch = () => {
-         setSearch(input)
+        const trimmed = input.trim();
+        setSearch(trimmed);
+        if (trimmed === search) return;
+
          setPage(0); 
          setPaidRecipes([]); 
          setLastVisiblePaid(null);
@@ -87,7 +90,7 @@ const Recipes = () => {
     
             setLoadingPaid(true);
             try {
-                if (search) {
+                if (search != "") {
                     const paidQuery = query(collection(db, "recipes"), where("paid", "==", true));
                     const paidSnapshot = await getDocs(paidQuery);
                     const allPaidData = paidSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -101,7 +104,7 @@ const Recipes = () => {
                     setLastVisiblePaid(null); 
                     return;
                 }
-    
+                else {
                 const paidQuery = lastVisiblePaid
                     ? query(
                         collection(db, "recipes"),
@@ -122,6 +125,7 @@ const Recipes = () => {
     
                 const lastDoc = paidSnapshot.docs[paidSnapshot.docs.length - 1];
                 if (lastDoc) setLastVisiblePaid(lastDoc);
+                }
             } catch (error) {
                 console.error("Error fetching paid recipes:", error);
             } finally {
