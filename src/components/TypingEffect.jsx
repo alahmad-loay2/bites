@@ -5,7 +5,7 @@ const TypingEffect = ({ text, fontSize = "1.4rem", color = "var(--text-color)" }
   const letters = text.split(""); 
 
   return (
-    <div style={{ fontSize, color }}>
+    <div style={{ fontSize, color, whiteSpace: "pre-line"}}>
       {letters.map((letter, index) => (
         <motion.span
           key={index}

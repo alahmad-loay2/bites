@@ -16,33 +16,92 @@
     width: 100% !important;
     height: 100% !important;
   }
+
+.vendor-section {
+  margin-top: 0;
+  padding-top: 80px;
+  position: relative;
+  background-color: #c3e7b7;
+}
+.hero-section{
+  max-height: 880px;
+  min-height: 550px;
+}
+  .wave-divider {
+    width: 100%;
+    height: 220px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='%23c3e7b7' fill-opacity='1' d='M0,96L48,117.3C96,139,192,181,288,192C384,203,480,181,576,144C672,107,768,53,864,42.7C960,32,1056,64,1152,69.3C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/></svg>");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: -5px; 
+  }
+.bubble {
+  position: absolute;
+  background-color: #eefde8;
+  border-radius: 50%;
   
+}
+
+.bubble1 {
+  width: 85px;
+  height: 85px;
+  top: 30px;
+  left: 100px;
+}
+
+.bubble2 {
+  width: 50px;
+  height: 50px;
+  top: -0%;
+  right: 30%;
+}
+
+.bubble3 {
+  width: 75px;
+  height: 75px;
+  top: -20%;
+  right: 35%;
+}
+
 
   .hero {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
   }
-
+.hero-title{
+  margin-bottom: 40px;
+}
   .hero-text {
-    max-width: 400px;
-    color: var(--text-color);
+    max-width: 700px;
     letter-spacing: 3px;
-    text-align: center;
+    text-align: left;
     padding: 15px;
     margin: 0 20px;
-    
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); 
-    border-radius: 10px; 
-    border: 2px solid rgba(255, 255, 255, 0.3); 
-    box-shadow: 0 4px 6px rgba(0, 0, 0.2, 0.3);
-    background: rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
   }
-
+  .food-icon {
+    position: absolute;
+    width: 130px; 
+    z-index: 10;
+  }
+  
+  .pizza     { left: -3%;  bottom:-1%; transform: rotate(-15deg);}
+  .burger    { top: 0%; transform: rotate(-21deg); }
+  .hotdog    { bottom: 30%; left: 30%; transform: rotate(20deg); }
+  .leaf      { bottom: -1%; right: 62%; width: 40px; transform: rotate(-38deg) scaleX(-1); }
+  .sandwich  { top: -10%; right: 40%; transform: rotate(42deg); }
+  .taco      { bottom: -19%; left: 31%; }
+  .leaf2     {bottom: 0%;width: 41px;transform: rotate(76deg);left: 74%;}
+  .leaf3     {width: 25px;bottom: 26%;right: 10%;transform: rotate(-22deg);}
+  .leaf4     {top: 7%;left: 47%;width: 45px;transform: scaleX(-1);}
+  .leaf5     { top: 20%;transform: rotate(31deg);width: 30px;left: 30%;}
+  .leaf6     { bottom: 8%;left: 41%;width: 56px;transform: rotate(-23deg);}
+ 
   .callToAction{
     display: flex;
     align-items: center;
@@ -52,33 +111,178 @@
     gap: 20px;
   }
 
+  .callToAction-wrapper {
+    position: relative;
+  }
+  
+  .callToAction-wrapper::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 10px;
+    left: 20px;
+    width: 94%;
+    height: 94%;
+    border-radius: 30px;
+    background: repeating-linear-gradient(
+      45deg,
+      #EDD551,
+      #EDD551 2px,
+      transparent 2px,
+      transparent 6px
+    );
+    transition: all 0.3s ease;
+  }
+  
   .callToAction-text {
-    max-width: 400px;
+    max-width: 420px;
     margin: 0 20px 20px;
     font-size: 1.2rem;
     color: var(--text-color);
     letter-spacing: 3px;
     text-align: center;
-    padding: 15px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px); 
-    border-radius: 10px; 
-    border: 2px solid rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px);
+    background-color: #c3e7b7;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 6px rgba(0, 0, 0.2, 0.3);
-    background: rgba(0, 0, 0, 0.1);
   }
-
-  .callToAction-text button {
-    width: 100%;
+  .callToAction-wrapper:hover::before {
+    width: calc(100% + 30px);
+    height: calc(100% + 40px);
+    top: -25px;
+    left: -15px;
   }
   
+.home-btn{
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: rgb(249, 126, 109);
+  width: 80%;
+}
+.arrow{
+  position: absolute;
+  transform: scaleX(-1);
+  width: 33%;
+  bottom: 16%;
+  left: 85%;
+}
   p {
     margin: 0;
   }
+@media (max-width: 1159px){
+  .hero-text{
+    text-align: center;
+  }
+  .food-icon{
+    width: 90px;
+  }
+  .sandwich {top: 0%;
+    right: 31%;
+    transform: rotate(42deg);
+}
+.leaf3 {
+  width: 28px;
+  bottom: 58%;
+  right: 5%;
+  transform: rotate(-22deg);
+}
+.hotdog {
+  bottom: 70%;
+  left: 68%;
+  transform: rotate(20deg);
+}
+.leaf6 {
+  bottom: 60%;
+  left: 75%;
+  width: 25px;
+  transform: rotate(-23deg);
+}
+.leaf2 {
+  bottom: 12%;
+  width: 35px;
+  transform: rotate(76deg);
+  left: 91%;
+}
+.leaf {
+  bottom: -1%;
+  right: 62%;
+  width: 40px;
+  transform: rotate(-38deg) scaleX(-1);
+}
+.pizza {
+  left: -1%;
+  bottom: 6%;
+  transform: rotate(-15deg);
+}
+.taco {
+  bottom: 61%;
+  left: 21%;
+}
+.leaf5 {
+  top: 21%;
+  transform: rotate(31deg);
+  width: 33px;
+  left: 32%;
+}
+.burger {
+  top: 3%;
+  transform: rotate(-21deg);
+}
+.leaf4 {
+  top: 5%;
+  left: 42%;
+  width: 41px;
+  transform: scaleX(-1);
+}
+}
+@media (max-width: 770px){
+  .bubble1{
+    width: 75px;
+    height: 75px;
+    top: -31px;
+    left: 74px;
+  }
+  .bubble3 {
+    width: 65px;
+    height: 65px;
+    top: -20%;
+    right: 23%;
+}
+.bubble2 {
+  width: 40px;
+  height: 40px;
+  top: -7%;
+  right: 15%;
+}
+.callToAction-wrapper{
+  margin-bottom: 50px;
+}
+  .canvas-container{
+    width: 300px;
+    height: 300px;
+  }
+  .food-icon{
+    width: 80px;
+  }
+  .pizza     { left: -3%;  bottom:-1%;}
+  .burger    { top: 3%}
+  .hotdog    { bottom: 59%; left: 11%; transform: rotate(10deg); }
+  .leaf      { bottom: 0%; right: 62%; width: 30px;}
+  .sandwich  { top: 10%; right: 20% }
+  .taco      { bottom: 45%; left: 68%; }
+  .leaf2     {bottom: 0%;width: 41px;transform: rotate(76deg);left: 74%;}
+  .leaf3     {width: 25px;bottom: 39%;right: 10%}
+  .leaf4     {top: -8%; width: 45px;transform: rotate(20deg)scaleX(-1);}
+  .leaf5     { top: 25%; width: 20px;left: 28%;}
+  .leaf6     {left: 23%; top: 10%; width: 20px;}
+  
+}
 @media (max-width: 480px) {
   .canvas-container {
     width: 280px;  
