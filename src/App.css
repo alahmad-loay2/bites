@@ -4,13 +4,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
+  font-family: "Urbanist", sans-serif;
 }
 
 body {
-  overflow-x: hidden;
-  font-family: "Urbanist", sans-serif;
-  font-weight: 600 !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 
 html {
@@ -23,5 +22,7 @@ html {
   --text-color: black;
   --accent-color: #EDD551;
   --accent-two-color: #5E3D50;
+  --gradient-start: #9bb9a0; 
+  --gradient-end: #f0f5f1;
 }
 

@@ -1,7 +1,7 @@
 .layout-container {
     min-height: 100dvh;
     min-width: 100dvw;
-    background-color: var(--primary-color);
+    background: linear-gradient(140deg, var(--gradient-start), var(--gradient-end))
   }
 
 nav {
