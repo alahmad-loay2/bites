@@ -1,7 +1,7 @@
 .layout-container {
     min-height: 100dvh;
     min-width: 100dvw;
-    background: var(--primary-color);
+    background-color: var(--primary-color);
   }
 
 nav {

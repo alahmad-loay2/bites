@@ -15,6 +15,7 @@ import AdminProtected from './AdminProtected'
 import AdminUsers from '../pages/admin/AdminUsers'
 import Account from '../pages/account/Account'
 import AccountProtected from './AccountProtected'
+import Cooking from '../pages/steps/Cooking';
 
 const AppRoutes = () => {
     return (
@@ -24,6 +25,11 @@ const AppRoutes = () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/recipes' element={<Recipes />} />
                     <Route element={<ProtectedRoute />}>
+                    <Route path='/recipes/steps/:id' element={<Steps />} />
+                    <Route path='/cooking' element={<Cooking/>}/>
+                    </Route>
+                    <Route element={<AdminProtected />}>
+                    <Route path='/admin' element={<Admin />}/>
                     </Route>
                     <Route path='/payment' element={<Payment />}/>
                 </Route>
