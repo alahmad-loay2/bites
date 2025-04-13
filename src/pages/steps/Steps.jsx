@@ -5,14 +5,13 @@ import { doc, getDoc } from "firebase/firestore";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import Pan from "../../components/Pan";
 import './steps.css';
-import { faGlobe, faClock } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Robot from '../../components/Robot';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from "@react-three/drei";
 import TypingEffect from "../../components/TypingEffect";
 import { useInView } from 'react-intersection-observer';
 import Basket from '../../components/Basket'
+
 
 
 const Steps = () => {
@@ -23,45 +22,35 @@ const Steps = () => {
   const { ref: ingredientsRef, inView: isIngredientsVisible } = useInView({
     threshold: 0.3,
   });
-  const [checkedItems, setCheckedItems] = useState([]);
-  const toggleCheckedbox = (index) => {
-    setCheckedItems(prev => {
-      const updated = prev.includes(index)
-        ? prev.filter(i => i !== index)
-        : [...prev, index];
-  
-     
-      if (recipe && updated.length === recipe.ingredients.length) {
-        setShowPopup(true);
-        setTimeout(() => {
-          navigate("/cooking");
-        }, 1000000000); 
-      }
-  
-      return updated;
-    });
-  };
   
   const [showPopup, setShowPopup] = useState(false);
-
   useEffect(() => {
     const fetchRecipe = async () => {
-      try {
-        const recipeRef = doc(db, "recipes", id);
-        const recipeSnap = await getDoc(recipeRef);
-        if (recipeSnap.exists()) {
-          setRecipe(recipeSnap.data());
-        }
-      } catch (error) {
-        console.error("Error fetching recipe:", error);
+      const docRef = doc(db, "recipes", id);
+      const docSnap = await getDoc(docRef);
+  
+      if (docSnap.exists()) {
+        setRecipe(docSnap.data());
+      } else {
+        console.log("No such document!");
       }
     };
-
+  
     fetchRecipe();
   }, [id]);
+  
+
+  const handleArrowClick = () => {
+    setShowPopup(true);
+    setTimeout(() => {
+      navigate("/cooking");
+    }, 3000);
+  };
+  
 
   return (
     <>
+    
       <Breadcrumbs />
       {recipe ? (
         <>
@@ -76,35 +65,35 @@ const Steps = () => {
                   meal!
                 </p>
               </div>
-              {/* <div className="pan-model">
+              <div className="pan-model">
               <Pan />
-              </div> */}
+              </div> 
             </div>
 
             <div className="time-description">
                 <div className="description-list">
-                    <FontAwesomeIcon icon={faGlobe} className="description-icon"/>
+                    <img className = "description-icon"src="/images/globe.png" alt=""/>
                     <div className="description-items">
                         <li>Cuisine</li>
                         <li>Russian</li>
                     </div>
                 </div>
                 <div className="description-list">
-                    <FontAwesomeIcon icon={faClock} className="description-icon"/>
+                    <img className = "description-icon"src="/images/time-left.png"/>
                     <div className="description-items">
                         <li>Total Time</li>
                         <li>35-40 minutes</li>
                     </div>
                 </div>
                 <div className="description-list">
-                    <FontAwesomeIcon icon={faClock} className="description-icon"/>
+                    <img  className = "description-icon"src="/images/serving-dish.png"/>
                     <div className="description-items">
                         <li>Servings</li>
                         <li>3-4</li>
                     </div>
                 </div>
                 <div className="description-list">
-                    <FontAwesomeIcon icon={faClock} className="description-icon"/>
+                    <img className = "description-icon" src="/images/meal.png"/>
                     <div className="description-items">
                         <li>Preparation Time</li>
                         <li>10-20 minutes</li>
@@ -112,11 +101,13 @@ const Steps = () => {
                 </div> 
             </div>
             <div className="section">
+              <img className = "frame-background"src="/images/Frame 4.png" alt="" />
           <div className="robot-section">
             <Canvas
             camera={{ position: [-3, 1, 5], fov: 30 }}
             style={{ width: "300px", height: "600px" }} 
             >
+            <directionalLight position={[0, 1, 1]} intensity={2} />
             <Environment preset="city" />
             <OrbitControls 
             enableZoom={false} 
@@ -145,26 +136,26 @@ const Steps = () => {
             <div className="ingredients-list-container">
               <h3 className="ingredients-title">Ingredients</h3>
               
-            <ul className="ingredients-list"
-            ref={ingredientsRef}>
+              <ul className="ingredients-list" ref={ingredientsRef}>
               {recipe.ingredients?.map((ingredient, index) => (
-                <li key={index}>
-                <input type="checkbox"
-                checked={checkedItems.includes(index)}
-                onChange={()=> toggleCheckedbox(index)} 
-                />
-                <span
-                style={{
-                  textDecoration: checkedItems.includes(index)
-                    ? 'line-through'
-                    : 'none',
-                   }}
-                   >
-                  {ingredient}
-               </span>
-               </li>
+              <li key={index}>{ingredient}</li>
               ))}
-            </ul>
+              </ul>
+
+              <div className="arrow-container">
+                <button
+                onClick={handleArrowClick}
+                style={{ background: "none", border: "none", cursor: "pointer" }}
+                aria-label="Go to cooking page"
+                  >
+              <img
+                className="arrow-ingredients"
+                src="/images/arrow.png"
+                alt="Go to cooking page"
+                  />
+                </button>
+              </div>
+
           </div>
           </div>
 
@@ -182,12 +173,9 @@ const Steps = () => {
         <Basket position={[0, -1, 0]} scale={[0.2, 0.2, 0.2]} />
       </Canvas>
       <p>Preparing your cooking station...</p>
-    </div>
-  </div>
-)}
-
-
-
+        </div>
+      </div>
+      )}
 
           <div className="steps-container">
             {recipe.steps?.map((step, index) => (

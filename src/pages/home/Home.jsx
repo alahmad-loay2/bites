@@ -34,6 +34,25 @@ const Home = () => {
 
       <section className='hero-section'>
       <div className="hero">
+
+        
+        <div className='test'>
+       
+        <img className='food-icon taco' src="/images/taco-icon.png" alt="" />
+        
+        <img className='food-icon leaf5'src="/images/leaf-icon.png"alt="" />
+        <img className='food-icon leaf6'src="/images/leaf-icon.png"alt="" />
+        
+        <img className='food-icon pizza' src="/images/pizza-icon.png" alt=""  />
+          <img className='food-icon burger' src="/images/burger-icon.png" alt="" />
+          <img className='food-icon leaf'src="/images/leaf-icon.png"alt="" />
+          <img className='food-icon leaf2'src="/images/leaf-icon.png"alt="" />
+          <img className='food-icon leaf3'src="/images/leaf-icon.png"alt="" />
+        
+        
+        
+        
+        
         <div className="canvas-container">
           {robotLoading && (
             <div className="canvas-loader">
@@ -57,26 +76,38 @@ const Home = () => {
             />
             <Robot />
           </Canvas>
-          <img className='food-icon pizza' src="/images/pizza-icon.png" alt=""  />
+          {/* <img className='food-icon pizza' src="/images/pizza-icon.png" alt=""  />
           <img className='food-icon burger' src="/images/burger-icon.png" alt="" />
           <img className='food-icon leaf'src="/images/leaf-icon.png"alt="" />
           <img className='food-icon leaf2'src="/images/leaf-icon.png"alt="" />
-          <img className='food-icon leaf3'src="/images/leaf-icon.png"alt="" />
-
+          <img className='food-icon leaf3'src="/images/leaf-icon.png"alt="" /> */}
         </div>
-        <img className='food-icon sandwich' src="/images/sandwich-icon.png" alt="" />
+        </div>
+        {/* <img className='food-icon sandwich' src="/images/sandwich-icon.png" alt="" />
         <img className='food-icon taco' src="/images/taco-icon.png" alt="" />
         <img className='food-icon leaf4'src="/images/leaf-icon.png"alt="" />
         <img className='food-icon leaf5'src="/images/leaf-icon.png"alt="" />
         <img className='food-icon leaf6'src="/images/leaf-icon.png"alt="" />
-        <img className='food-icon hotdog' src="/images/hotdog-icon.png" alt="" />
+         */}
         
         <div className='hero-text'>
+        <img className='food-icon hotdog' src="/images/hotdog-icon.png" alt="" />
+        <img className='food-icon leaf4'src="/images/leaf-icon.png"alt="" />
+        <img className='food-icon sandwich' src="/images/sandwich-icon.png" alt="" />
         <h1 className='hero-title'>Welcome to <span style={{color: "#F97E6D"}}>World Bites</span></h1>
           <TypingEffect text={ `hello, explorer! I’m ChefBot - your personal culinary guide through the world of flavor. \n  \n Together, we’ll conquer cravings and discover deliciousness!`} />
         </div>
       </div>
       </section>
+
+
+
+
+
+
+
+
+
 
       <div className="wave-divider"></div>
         
