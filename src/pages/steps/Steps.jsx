@@ -11,7 +11,8 @@ import { Environment, OrbitControls } from "@react-three/drei";
 import TypingEffect from "../../components/TypingEffect";
 import { useInView } from 'react-intersection-observer';
 import Basket from '../../components/Basket'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 const Steps = () => {
@@ -138,7 +139,8 @@ const Steps = () => {
               
               <ul className="ingredients-list" ref={ingredientsRef}>
               {recipe.ingredients?.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
+              <li key={index}><FontAwesomeIcon icon={faStar} className="ingredient-icon"/>{ingredient}
+              </li>
               ))}
               </ul>
 

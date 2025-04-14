@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(140deg, var(--gradient-start), var(--gradient-end));
+    background: var(--primary-color);
     position: relative;
 }
 
@@ -17,7 +17,7 @@
     align-items: center;
     gap: 8px;
     background: var(--accent-two-color);
-    color: var(--secondary-color);
+    color: white;
     border: none;
     padding: 12px 24px;
     border-radius: 12px;
@@ -33,7 +33,7 @@
 }
 
 .account-card {
-    background-color: var(--secondary-color);
+    background-color: #dadada;
     border-radius: 16px;
     padding: 32px;
     width: 100%;
@@ -51,8 +51,8 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, var(--gradient-end) 10%, transparent 10%),
-                radial-gradient(circle, var(--gradient-end) 10%, transparent 10%);
+    background: radial-gradient(circle, #6c6c6c 10%, transparent 10%),
+                radial-gradient(circle, #6c6c6c 10%, transparent 10%);
     background-position: 0 0, 25px 25px;
     background-size: 50px 50px;
     opacity: 0.1;
@@ -145,7 +145,7 @@
 }
 
 .status-badge[data-status="active"] {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
 }
 

@@ -7,6 +7,7 @@ import getUserInfo from '../../firebase/getUserInfo';
 import { getDocs, collection, query, where, limit, startAfter } from 'firebase/firestore';
 import { db } from "../../firebase/config";
 import { SkeletonGroup } from '../../components/RecipeCardSkeleton';
+import { ChefHat } from 'lucide-react';
 
 const Recipes = () => {
     const navigate = useNavigate();
@@ -142,17 +143,18 @@ const Recipes = () => {
         setPage(prev => prev + 1);
     };
 
+
     return (
         <>
             <div className="title">
                 <h2>Explore all our delicious recipes</h2>
                 <div className='hr-container'>
                     <hr />
-                    <p>search</p>
+                    <p>Chop, stir, and fry — we’ll help you try!</p>
                     <hr />
                 </div>
                 <input value={input} onChange={(e) => setInput(e.target.value)} type="text" id="recipe-search" placeholder="Search for recipes..." />
-                <button onClick={onSearch} className='btn btn-secondary'>search</button>
+                <button onClick={onSearch} className='search-btn'>search</button>
             </div>
 
             {loading ? (
@@ -189,8 +191,9 @@ const Recipes = () => {
                         </div>
                     </div>
 
-                    <Divider />
+                    <div class="polka-divider"></div>
 
+    
                     {userInfo ? (
                         userInfo.paid ? (
                             <div className="all-container">

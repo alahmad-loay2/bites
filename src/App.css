@@ -5,11 +5,12 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Urbanist", sans-serif;
+  font-weight: 500;
 }
 
 body {
   overflow-x: hidden !important;
-  overflow-y: hidden !important;
+  overflow-y: auto !important;
 }
 
 html {
@@ -24,5 +25,6 @@ html {
   --accent-two-color: #5E3D50;
   --gradient-start: #9bb9a0; 
   --gradient-end: #f0f5f1;
+
 }
 

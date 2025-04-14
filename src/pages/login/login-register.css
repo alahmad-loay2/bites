@@ -4,12 +4,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('background-login.webp');
+    background-color: var(--primary-color);
+    background-image: url('login-background.png');
     background-size:cover;
     background-position: center;
     background-repeat:no-repeat;
     background-clip: border-box;
-    color: white;
+    color: black;
   }
   
   .glass-card {
@@ -44,10 +45,9 @@
     border: none;
     outline: none;
     background-color: transparent;
-    color: white;
+    background-image: linear-gradient(90deg, transparent, #818181, transparent);
+    color: rgb(0, 0, 0);
     padding-bottom: 5px;
-
-    background-image: linear-gradient(90deg, transparent, white, transparent);
     background-size: 200% 2px;
     background-repeat: no-repeat;
     background-position: -100% bottom;

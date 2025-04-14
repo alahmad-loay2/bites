@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls } from "@react-three/drei";
-import * as THREE from "three";
 
 const Model = () => {
   const { scene } = useGLTF("/models/pan.glb");
@@ -9,21 +8,6 @@ const Model = () => {
   const floatInfluence = useRef(0);
   const direction = useRef(1);
 
-  const { viewport } = useThree();
-
-
-  const scaleFactor = viewport.width < 5 ? 1.4 : 2;
-
-  useEffect(() => {
-    const meshes = scene.children.filter(child => child.isMesh);
-    meshes.forEach(mesh => {
-      mesh.castShadow = true;
-      mesh.receiveShadow = true;
-    });
-
-    scene.position.set(0, -0.2, 0); 
-    scene.rotation.set(0, 0, 0);
-  }, [scene]);
 
   useFrame(() => {
     const meshes = scene.children.filter(child => child.isMesh);
@@ -41,20 +25,19 @@ const Model = () => {
     });
   });
 
-  return <primitive object={scene} ref={modelRef} scale={[scaleFactor, scaleFactor, scaleFactor]} />;
+  return <primitive object={scene} ref={modelRef} scale={1.7} />;
 };
 
 const Pan = () => {
   return (
-    <div style={{ width: "100%", height: "100%", maxHeight: "300px" }}>
-      <Canvas
-        camera={{ position: [-1, 2, 6], fov: 40 }}>
+    
+      <Canvas camera={{ position: [-1, 1.7, 5], fov: 50 }}>
         <ambientLight intensity={2} />
-        <directionalLight position={[2, 3, 4]} intensity={1.5} castShadow />
+        <directionalLight position={[2, 3, 4]} intensity={1.5}  />
         <Model />
         <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
       </Canvas>
-    </div>
+   
   );
 };
 

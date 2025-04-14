@@ -9,10 +9,12 @@
   color: var(--secondary-color);
 }
 .time-description{
+  margin: 0px 15px 0 15px;
     display: flex;
     line-height: 20px;
     justify-content: center;
     gap: 7rem;
+    flex-wrap: wrap;
 }
 .description-list{
     display: flex;
@@ -42,7 +44,7 @@
 }
 .speech-bubble {
   display: flex;
-  background-color: var(--secondary-color);
+  background-color:var(--);
   padding: 22px;
   border-radius: 30px;
   max-width: 380px;
@@ -79,25 +81,38 @@
 }
 
 .prepare-title{
+  color: var(--secondary-color);
   display: flex;
   justify-content: center;
 }
 .ingredients-title{
-  color:var(--secondary-color);
   margin: 20px;
   font-size: 1.7rem;
 
 }
+.ingredient-icon{
+  color: var(--accent-color);
+}
 
 .ingredients-list{
-  display: flex;
-  align-items: center;
+  max-width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid;
+  padding: 20px;
   list-style: none;
   font-size: 1.2rem;
+  
+  gap: 1.5rem;
 }
 .ingredients-list li{
   display: flex;
   gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+.ingredients-list li:hover{
+  
+  transform: translateY(-4px);
+  color: grey;
 }
 
 .ingredients-list li input {
@@ -105,6 +120,7 @@
   width: 20px;
 }
 .ingredients-list-container{
+  border: 2px dashed var(--accent-color);
   background-color: transparent;
   border-radius: 20px;
   margin: 40px;
@@ -151,5 +167,12 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (max-width: 830px) {
+  .title-container{
+    flex-direction: column-reverse;
+    justify-content: center;
   }
 }
