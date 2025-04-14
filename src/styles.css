@@ -89,7 +89,7 @@ nav {
     border-radius: 8px;
   }
 
-  .accountNav {
+  .btnStyle {
     border: none;
     color: var(--text-color);
     background-color: var(--accent-color);

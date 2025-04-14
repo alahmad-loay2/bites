@@ -32,12 +32,12 @@ const Nav = () => {
                 ) : userInfo ? (
                     <>
                         {userInfo?.isAdmin && <Link className='adminNav' to='/admin/recipes'>Admin</Link>}
-                        <button className="accountNav" onClick={() => navigate("/account")} type="button">
+                        <button className="btnStyle" onClick={() => navigate("/account")} type="button">
                             {userInfo.username}
                         </button>
                         </>
                 ) :
-                    <Link to='/login' className='login'><button className='btn btn-dark'>Log In</button></Link>
+                    <Link to='/login' className='login'><button className='btnStyle'>Log In</button></Link>
                 }
             </div>
             <div className="offcanvas offcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -57,12 +57,12 @@ const Nav = () => {
                     ) : userInfo ? (
                         <div className='offcanvasAdmin'>
                         {userInfo?.isAdmin && <Link className='adminNav' to='/admin/recipes'>Admin</Link>}
-                            <button className="accountNav" type="button" onClick={() => navigate("/account")}>
+                            <button className="btnStyle" type="button" onClick={() => navigate("/account")}>
                                 {userInfo.username}
                             </button>
                             </div>
                     ) : (
-                        <Link to='/login' className='login'><button className='btn btn-dark mt-3'>Log In</button></Link>
+                        <Link to='/login' className='login'><button className='btnStyle'>Log In</button></Link>
                     )}
                 </div>
             </div>

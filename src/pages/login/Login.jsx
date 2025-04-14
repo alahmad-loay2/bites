@@ -41,12 +41,12 @@ const Login = () => {
             <input type="password" placeholder="Enter password" 
             onChange={(e) => setPass(e.target.value)} required />
           </div>
-          <button type="submit" className="btn btn-dark">Login</button>
+          <button type="submit" className="btnStyle">Login</button>
         </form>
 
         <div>
           <Link to='/register'><button className="btn btn-link">Don't have an account? Register</button></Link>
-          <Link to='/'><button className="btn btn-dark">Back to Home</button></Link>
+          <Link to='/'><button className="btnStyle">Back to Home</button></Link>
         </div>
       </div>
     </div>
