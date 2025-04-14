@@ -5,12 +5,24 @@
   }
 
 nav {
+    height: 140px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 50px;
-    padding: 40px;
+    width: 80%;
+    max-width: 1500px;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    padding: 20px 40px;
   }
 
   nav .hamburger-icon {
@@ -67,6 +79,33 @@ nav {
 
   .login::after {
     height: 0;
+  }
+
+  .adminNav {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .accountNav {
+    border: none;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .offcanvas-body {
+    flex-direction: column;
+    display: flex;
+    gap: 15px;
+  }
+
+  .offcanvasAdmin {
+    display: flex;
+    gap: 10px;
   }
 
   .account-loading {
@@ -133,13 +172,13 @@ nav {
     display: block;
   }
 
+  .nav-inner {
+    width: 100%;
+    gap: 0;
+  }
+
   .nav-wrapper{
     display: none;
-  }
-  nav {
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 15px;
   }
 
   .offcanvas{

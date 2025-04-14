@@ -1,5 +1,8 @@
 .title-container{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .steps-title{
     margin: 12px 20px;
@@ -7,6 +10,10 @@
 }
 .steps-title h2{
   color: var(--secondary-color);
+}
+.pan-model {
+  width: 400px;
+  height: 300px;
 }
 .time-description{
   margin: 0px 15px 0 15px;
@@ -30,30 +37,37 @@
 }
 .robot-section{
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap ;
+    gap: 25px;
+    margin: 0 50px;
 }
+.robot-container {
+  width: 300px;
+  height: 400px;
+}
+
 .frame-background{
   width: 100vw;
   top: -15%;
   position: absolute;
-
 }
 
 .section{
   position: relative;
-  margin-top: 5pc;
+  margin-top: 5rem;
 }
 .speech-bubble {
   display: flex;
-  background-color:var(--);
   padding: 22px;
   border-radius: 30px;
   max-width: 380px;
   max-height: 180px;
-  margin: 20px;
   position: relative;
   align-items: center;
   justify-content: center;
   text-align: center;
+  transform: translate(5%, -20%);
 }
 .speech-bubble:before,
 .speech-bubble:after {
@@ -85,6 +99,12 @@
   display: flex;
   justify-content: center;
 }
+
+
+.ingredient-container {
+  margin: 0 30px;
+}
+
 .ingredients-title{
   margin: 20px;
   font-size: 1.7rem;
@@ -95,13 +115,13 @@
 }
 
 .ingredients-list{
-  max-width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 1000px; 
+  width: 100%;
   padding: 20px;
   list-style: none;
   font-size: 1.2rem;
-  
   gap: 1.5rem;
 }
 .ingredients-list li{
@@ -120,10 +140,11 @@
   width: 20px;
 }
 .ingredients-list-container{
+  margin: 0 auto;
+  max-width: 1000px;
   border: 2px dashed var(--accent-color);
   background-color: transparent;
   border-radius: 20px;
-  margin: 40px;
   box-shadow:
   4px 4px 8px 1px rgb(165, 165, 165);
 }
@@ -170,9 +191,15 @@
   }
 }
 
-@media (max-width: 830px) {
-  .title-container{
-    flex-direction: column-reverse;
-    justify-content: center;
+
+
+@media (max-width: 480px) {
+  .canvas-container {
+    width: 280px;  
+    height: 280px; 
+  }
+  .pan-model {
+    width: 280px;  
+    height: 200px; 
   }
 }

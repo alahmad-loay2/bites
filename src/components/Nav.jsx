@@ -13,6 +13,7 @@ const Nav = () => {
       
     return (
         <nav>
+            <div className="nav-inner">
             <img src={logo} alt="logo.png" />
             <button className="btn hamburger-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
                 <FontAwesomeIcon icon={faBars} size="lg" />
@@ -23,15 +24,18 @@ const Nav = () => {
                     <Link to='/' className={location.pathname === "/" ? "active" : ""}>Home</Link>
                     <Link to='/recipes' className={location.pathname === "/recipes" ? "active" : ""}>Recipes</Link>
                     <Link to='/payment' className={location.pathname === "/payment" ? "active" : ""}>Plans</Link>
-                    {userInfo?.isAdmin && <Link to='/admin/recipes'>Admin</Link>}
+                    
                 </ul>
 
                 {loading ? (
                     <span>loading</span>
                 ) : userInfo ? (
-                        <button className="btn btn-dark" onClick={() => navigate("/account")} type="button">
+                    <>
+                        {userInfo?.isAdmin && <Link className='adminNav' to='/admin/recipes'>Admin</Link>}
+                        <button className="accountNav" onClick={() => navigate("/account")} type="button">
                             {userInfo.username}
                         </button>
+                        </>
                 ) :
                     <Link to='/login' className='login'><button className='btn btn-dark'>Log In</button></Link>
                 }
@@ -46,19 +50,22 @@ const Nav = () => {
                         <li><Link to='/' className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
                         <li><Link to='/recipes' className={location.pathname === "/recipes" ? "active" : ""}>Recipes</Link></li>
                         <li><Link to='/payment' className={location.pathname === "/payment" ? "active" : ""}>Plans</Link></li>
-                        {userInfo?.isAdmin && <li><Link to='/admin/recipes'>Admin</Link></li>}
                     </ul>
 
                     {loading ? (
                         <span>Loading...</span>
                     ) : userInfo ? (
-                            <button className="btn btn-dark" type="button" onClick={() => navigate("/account")}>
+                        <div className='offcanvasAdmin'>
+                        {userInfo?.isAdmin && <Link className='adminNav' to='/admin/recipes'>Admin</Link>}
+                            <button className="accountNav" type="button" onClick={() => navigate("/account")}>
                                 {userInfo.username}
                             </button>
+                            </div>
                     ) : (
                         <Link to='/login' className='login'><button className='btn btn-dark mt-3'>Log In</button></Link>
                     )}
                 </div>
+            </div>
             </div>
         </nav>
     )

@@ -1,3 +1,9 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 140px);
+}
+
 .canvas-container {
     width: 600px;  
     height: 400px;  
@@ -21,10 +27,13 @@
   padding-top: 80px;
   position: relative;
   background-color: #c3e7b7;
+  flex-grow: 1;
 }
 .hero-section{
   max-height: 880px;
   min-height: 550px;
+  display: flex;
+  justify-content: center;
 }
   .wave-divider {
     width: 100%;
@@ -63,15 +72,15 @@
   right: 30%;
 }
 
-
-  .hero {
+  
+.hero {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
-  }
+    gap: 50px;
+    }
 .hero-title{
   margin-bottom: 40px;
 }
@@ -115,6 +124,7 @@
     margin-bottom: 20px;
     position: relative;
   }
+
   
   .callToAction-wrapper::before {
     content: "";
@@ -183,16 +193,26 @@
   .leaf4     {top: 10%; left:30%;}
   .leaf6     { bottom: 24%;left: 87%;}
 }
-@media (max-width: 480px) {
+
+@media (max-width: 768px) {
   .canvas-container {
     width: 280px;  
     height: 280px; 
   }
+
   .callToAction-text{
-    max-width: 290px;
-    font-size: 13px;
-    max-height: 120px;
+    margin: 0;
+    max-width: 220px;
+    height: auto;
+    padding: 10px;
+    font-size: 12px;
   }
+  .food-icon {
+    scale: 1.2;
+  }
+}
+@media (max-width: 480px) {
+
   .callToAction-wrapper::before{
     width: 90%;
     height: 85%;

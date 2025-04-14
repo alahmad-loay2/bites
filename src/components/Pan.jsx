@@ -31,7 +31,7 @@ const Model = () => {
 const Pan = () => {
   return (
     
-      <Canvas camera={{ position: [-1, 1.7, 5], fov: 50 }}>
+      <Canvas camera={{ position: [-2, 1.7, 5], fov: 50 }}>
         <ambientLight intensity={2} />
         <directionalLight position={[2, 3, 4]} intensity={1.5}  />
         <Model />

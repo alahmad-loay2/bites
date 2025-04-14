@@ -14,7 +14,8 @@ const FoodVendor = () => {
 
   return (
     <>
-      <primitive position={[0, -2, 0]} ref={vendorRef} object={scene} scale={0.011} />
+      <primitive position={[0, -2.1, 0]} ref={vendorRef} object={scene} 
+      scale={0.01} />
     </>
   )
 }

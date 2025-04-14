@@ -261,6 +261,7 @@ return (
             <div className="checkbox-group">
               <input
                 type="checkbox"
+                value={paid}
                 checked={paid}
                 onChange={(e) => setPaid(e.target.checked)}
                 className="checkbox-input"

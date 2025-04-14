@@ -13,6 +13,7 @@ import { useInView } from 'react-intersection-observer';
 import Basket from '../../components/Basket'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Physics } from "@react-three/cannon";
 
 
 const Steps = () => {
@@ -104,23 +105,28 @@ const Steps = () => {
             <div className="section">
               <img className = "frame-background"src="/images/Frame 4.png" alt="" />
           <div className="robot-section">
+          <div className="robot-container">
+          {robotLoading && (
+            <div className="canvas-loader">
+              <div className="spinner-border text-dark" role="status"></div>
+            </div>
+          )}
             <Canvas
-            camera={{ position: [-3, 1, 5], fov: 30 }}
-            style={{ width: "300px", height: "600px" }} 
+            camera={{ position: [-1, 0, 2.5], fov: 50 }}
+            onCreated={() => setRobotLoading(false)}
             >
             <directionalLight position={[0, 1, 1]} intensity={2} />
             <Environment preset="city" />
             <OrbitControls 
             enableZoom={false} 
             enablePan={false} 
-            minPolarAngle={Math.PI / 2} 
-            maxPolarAngle={Math.PI / 2} 
-            minAzimuthAngle={-Math.PI / 3} 
-            maxAzimuthAngle={Math.PI / 3} />
+            enableRotate={false}/>
           <group scale={[0.3, 0.3, 0.3]}> 
             <Robot position={[0, -1, 0]}/>
           </group>
           </Canvas>
+          </div>
+
           <div className="speech-bubble">
           <TypingEffect 
           text={
@@ -134,6 +140,7 @@ const Steps = () => {
         </div>
           </div>
             <h2 className="prepare-title">Preparation</h2>
+            <div className="ingredient-container">
             <div className="ingredients-list-container">
               <h3 className="ingredients-title">Ingredients</h3>
               
@@ -166,18 +173,19 @@ const Steps = () => {
     <div className="popup-content">
 
       <Canvas
-        camera={{ position: [0, 1, 4], fov: 10 }}
+        camera={{ position: [0, 1, 4], fov: 50 }}
         style={{ width: "600px", height: "400px" }}
       >
         <ambientLight intensity={0.8} />
         <Environment preset="city" />
-        <OrbitControls enableZoom={false} />
+        <OrbitControls enableZoom={false} enableRotate={false} enablePan={false}/>
         <Basket position={[0, -1, 0]} scale={[0.2, 0.2, 0.2]} />
       </Canvas>
       <p>Preparing your cooking station...</p>
         </div>
       </div>
       )}
+      </div>
 
           <div className="steps-container">
             {recipe.steps?.map((step, index) => (

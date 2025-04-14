@@ -57,7 +57,7 @@ const Home = () => {
             </div>
           )}
           <Canvas
-            camera={{  position: [-2, 2.5, 5], fov : 50}}
+            camera={{  position: [-2, 2.5, 6], fov : 50}}
             onCreated={() => setRobotLoading(false)}
           >
             <directionalLight position={[-0.5, 1, 1]} intensity={2} />
@@ -113,7 +113,7 @@ const Home = () => {
             <FoodVendor />
           </Canvas>
         </div>
-        <div class="callToAction-wrapper">
+        <div className="callToAction-wrapper">
         <div className='callToAction-text'>
           <p>Get your <span style={{color: "#EDD551"}}>vendor</span> and lets start working</p>
           <img className='arrow' src="/images/arrow.png" alt="" />
