@@ -218,14 +218,14 @@ const Recipes = () => {
                             </div>
                         ) : (
                             <div className='pay-login'>
-                                <button className='pay-btn btn btn-dark' onClick={() => navigate('/payment')}>
+                                <button className='pay-btn btn' onClick={() => navigate('/payment')}>
                                     Pay to access more!
                                 </button>
                             </div>
                         )
                     ) : (
                         <div className='pay-login'>
-                            <button className='pay-btn btn btn-dark' onClick={() => navigate('/login')}>
+                            <button className='pay-btn btn' onClick={() => navigate('/login')}>
                                 Pay to access more!
                             </button>
                         </div>

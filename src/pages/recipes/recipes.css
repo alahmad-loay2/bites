@@ -113,6 +113,7 @@
 
 .pay-btn {
     margin-top: 40px;
+    background-color: var(--accent-color);
 }
   
 .pay-login {
