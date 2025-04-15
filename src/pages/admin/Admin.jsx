@@ -93,6 +93,10 @@ const Admin = () => {
             setPaid(false);
             setIngredients(['']);
             setSteps(['']);
+            setDescription("");
+            setTotalTime(null);
+            setPrepTime(null);
+            setServings(null);
             setImg(null)
             alert("recipe added")
     }

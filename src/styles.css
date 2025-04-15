@@ -133,25 +133,6 @@ nav {
     }
 }
   
-  .divider {
-    padding: 10px;
-    display: flex;
-    letter-spacing: 2px;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  
-  .divider-icon {
-    animation: bounce 1.5s infinite ease-in-out;
-  }
-  
-  .divider svg {
-    color: var(--accent-color);
-  }
-
   @keyframes bounce {
     0%, 100% {
       transform: translateY(-2px);

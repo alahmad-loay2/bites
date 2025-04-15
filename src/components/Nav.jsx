@@ -4,6 +4,7 @@ import logo from '/images/logo.png'
 import getUserInfo from "../firebase/getUserInfo";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { ChefHat } from 'lucide-react';
 
 const Nav = () => {
     const location = useLocation()
@@ -28,8 +29,8 @@ const Nav = () => {
                 </ul>
 
                 {loading ? (
-                    <span>loading</span>
-                ) : userInfo ? (
+            <ChefHat className="loading-icon" size={40} color='var(--accent-color)'/>
+        ) : userInfo ? (
                     <>
                         {userInfo?.isAdmin && <Link className='adminNav' to='/admin/recipes'>Admin</Link>}
                         <button className="btnStyle" onClick={() => navigate("/account")} type="button">

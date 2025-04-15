@@ -57,9 +57,9 @@ function Cooking() {
 
   return (
     <div className="cooking">
-
       {recipe && (
         <>
+          <button className="btnStyle backToRecipe" onClick={() => {navigate(-1)}}>go back</button>
           <h5 className="step-count">
             Step {currentStep + 1} of {recipe.steps.length}
           </h5>

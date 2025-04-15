@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './TimerBox.css';
 
 function TimerBox() {
   const [minutes, setMinutes] = useState('');

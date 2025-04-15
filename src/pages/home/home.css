@@ -24,7 +24,7 @@
 
 .vendor-section {
   margin-top: 0;
-  padding-top: 80px;
+  padding: 80px 30px;
   position: relative;
   background-color: #c3e7b7;
   flex-grow: 1;
