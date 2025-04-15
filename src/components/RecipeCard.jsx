@@ -2,7 +2,7 @@ import { deleteDoc, doc, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase/config";
-import supabase from "../supaBase/supabaseClient";
+import supabase from '../../supabase/supabaseClient';
 import getUserInfo from "../firebase/getUserInfo";
 
 const RecipeCard = ({id, img, title, cuisine }) => {
