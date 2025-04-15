@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import './admin.css'
 import { addDoc, collection } from 'firebase/firestore';
-import supabase from '../../supaBase/supabaseClient';
+import supabase from '../../supabase/supabaseClient';
 import { db } from '../../firebase/config';
 import { ChefHat, Plus, X, ArrowLeft } from 'lucide-react';
 import SidebarComp from '../../components/Sidebar';
