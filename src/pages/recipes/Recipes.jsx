@@ -191,7 +191,7 @@ const Recipes = () => {
                         </div>
                     </div>
 
-                    <div class="polka-divider"></div>
+                    <div className="polka-divider"></div>
 
     
                     {userInfo ? (
