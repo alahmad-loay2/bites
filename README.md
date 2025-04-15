@@ -48,5 +48,6 @@ setup paddle from https://sandbox-login.paddle.com/login (account for developmen
 change token and priceId according to your paddle and finally in paddle checkout, checkout settings <br/>
 add 'Default payment link' to your webapp (e.g. localhost)
 
+use paddle docs - cards for payments and testing
 
 
