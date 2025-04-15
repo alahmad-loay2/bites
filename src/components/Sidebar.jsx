@@ -14,10 +14,6 @@ const SidebarComp = () => {
         <BookOpen size={20} />
         Recipes
       </Link>
-      <Link to='/admin/users'   className={`nav-link ${location.pathname === '/admin/users' ? 'active' : ''}`}>
-      <Users size={20} />
-        Users
-      </Link>
     </aside>
   );
 };

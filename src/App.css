@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "monospace";
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
 }
 
 body {
-  overflow-x: hidden !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 html {
@@ -15,12 +18,13 @@ html {
 }
 
 :root {
-  --primary-color:#9bb9a0;
-  --secondary-color: white;
+  --primary-color:#eefde8;
+  --secondary-color: #f97e6d;
   --text-color: black;
-  --accent-color: #d69c8f;
+  --accent-color: #EDD551;
   --accent-two-color: #5E3D50;
   --gradient-start: #9bb9a0; 
   --gradient-end: #f0f5f1;
+
 }
 

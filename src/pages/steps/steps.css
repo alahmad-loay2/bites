@@ -1,0 +1,270 @@
+.title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.steps-title{
+    margin: 12px 20px;
+    max-width: 620px;
+}
+.steps-title h2{
+  color: var(--secondary-color);
+}
+.pan-model {
+  width: 400px;
+  height: 300px;
+}
+.time-description{
+  margin: 0px 15px 0 15px;
+    display: flex;
+    line-height: 20px;
+    justify-content: center;
+    gap: 7rem;
+    flex-wrap: wrap;
+}
+.description-list{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+}
+.description-icon{
+    width: 35px;
+}
+.description-items{
+    font-size: small;
+}
+.robot-section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap ;
+    gap: 25px;
+    margin: 0 50px;
+}
+.robot-container {
+  width: 300px;
+  height: 400px;
+}
+
+.frame-background{
+  width: 100vw;
+  top: -15%;
+  position: absolute;
+}
+
+.section{
+  position: relative;
+  margin-top: 5rem;
+}
+.speech-bubble {
+  background-color: var(--secondary-color);
+  display: flex;
+  padding: 22px;
+  border-radius: 30px;
+  max-width: 380px;
+  max-height: 180px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translate(5%, -20%);
+}
+.speech-bubble:before,
+.speech-bubble:after {
+  content:"";
+  background-color:var(--secondary-color);
+  border-radius:50%;
+  display:block;
+  position:absolute;
+
+}
+.speech-bubble:before {
+  width: 44px;
+  height: 44px;
+  top: -13px;
+  right: 24px;
+  
+  box-shadow: 50px 30px 0 -12px var(--secondary-color);
+}
+.speech-bubble:after {
+  bottom: -10px;
+    left: 26px;
+    width: 30px;
+    height: 30px;
+    box-shadow: -38px -104px 0 0 var(--secondary-color), -41px -41px 0 3px var(--secondary-color), -51px -5px 0 -6px var(--secondary-color), -38px 18px 0 -9px var(--secondary-color);
+}
+
+.prepare-title{
+  color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+}
+
+
+.ingredient-container {
+  padding-bottom: 30px;
+  margin: 0 30px;
+}
+
+.ingredients-title{
+  margin: 20px;
+  font-size: 1.7rem;
+
+}
+.ingredient-icon{
+  color: var(--accent-color);
+}
+
+.ingredients-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 1000px; 
+  width: 100%;
+  padding: 20px;
+  list-style: none;
+  font-size: 1.2rem;
+  gap: 1.5rem;
+}
+.ingredients-list li{
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+.ingredients-list li:hover{
+  
+  transform: translateY(-4px);
+  color: grey;
+}
+
+.ingredients-list li input {
+  cursor: pointer;
+  width: 20px;
+}
+.ingredients-list-container{
+  margin: 0 auto;
+  max-width: 1000px;
+  border: 2px dashed var(--accent-color);
+  background-color: transparent;
+  border-radius: 20px;
+  box-shadow:
+  4px 4px 8px 1px rgb(165, 165, 165);
+}
+.arrow-container{
+  padding-right: 20px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+}
+.arrow-ingredients{
+  width: 100px;
+  transform: rotate(-14deg);
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  margin: 20px 20px;
+  gap: 1rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  position: relative;
+}
+.breadcrumb a:hover{
+  text-decoration: underline;
+}
+.breadcrumb .current {
+  color: #000;
+  font-weight: bold;
+}
+
+.timer-box {
+  background-color: #f9ceff3b;
+  border: 2px dashed var(--accent-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  max-width: 300px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.timer-inputs input {
+  width: 60px;
+  margin: 0.3rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.timer-box button {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.timer-countdown p {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.backToRecipe{
+  display: block;
+  margin: 0 auto ;
+}
+
+@media (max-width: 480px) {
+  .canvas-container {
+    width: 280px;  
+    height: 280px; 
+  }
+  .pan-model {
+    width: 280px;  
+    height: 200px; 
+  }
+}

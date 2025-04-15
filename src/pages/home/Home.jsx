@@ -8,7 +8,8 @@ import { Environment, OrbitControls } from "@react-three/drei";
 import Robot from '../../components/Robot';
 import TypingEffect from '../../components/TypingEffect';
 import FoodVendor from '../../components/FoodVendor';
-import Divider from '../../components/Divider';
+import { color } from 'framer-motion';
+
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -26,18 +27,37 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+    
     <div className='home'>
       {isMobile ? <RippleEffect /> : <CursorFollower />}
-      <Divider />
-      <div className="hero">
+
+      <section className='hero-section'>
+      <div className="hero">  
         <div className="canvas-container">
+        
+          <img className='food-icon hotdog' src="/images/hotdog-icon.png" alt="" />
+          <img className='food-icon taco' src="/images/taco-icon.png" alt="" />
+          <img className='food-icon leaf6'src="/images/leaf-icon.png"alt="" />
+          <img className='food-icon leaf5'src="/images/leaf-icon.png"alt="" />
+         
+        
+          <img className='food-icon leaf4'src="/images/leaf-icon.png"alt="" />
+          <img className='food-icon sandwich' src="/images/sandwich-icon.png" alt="" />
+          
+        <img className='food-icon leaf3'src="/images/leaf-icon.png"alt="" />
+        <img className='food-icon leaf2'src="/images/leaf-icon.png"alt="" />
+        <img className='food-icon pizza' src="/images/pizza-icon.png" alt=""  />
+          <img className='food-icon burger' src="/images/burger-icon.png" alt="" />
+          <img className='food-icon leaf'src="/images/leaf-icon.png"alt="" />
+        
           {robotLoading && (
             <div className="canvas-loader">
               <div className="spinner-border text-dark" role="status"></div>
             </div>
           )}
           <Canvas
-            camera={{ position: [0, 2, 5] }}
+            camera={{  position: [-2, 2.5, 6], fov : 50}}
             onCreated={() => setRobotLoading(false)}
           >
             <directionalLight position={[-0.5, 1, 1]} intensity={2} />
@@ -53,14 +73,22 @@ const Home = () => {
             />
             <Robot />
           </Canvas>
+          
         </div>
         <div className='hero-text'>
-          <TypingEffect text="Hello! I am your Chef Robot, ready to assist you with recipes!" />
+ 
+        <h1 className='hero-title'>Welcome to <span style={{color: "#F97E6D"}}>World Bites</span></h1>
+          <TypingEffect text={ `hello, explorer! I’m ChefBot - your personal culinary guide through the world of flavor. \n  \n Together, we’ll conquer cravings and discover deliciousness!`} />
         </div>
       </div>
+      </section>
 
-      <Divider text="Keep Exploring Recipes!" />
-
+      <div className="wave-divider"></div>
+        
+      <section className='vendor-section'>
+      <div className="bubble bubble1"></div>
+    <div className="bubble bubble2"></div>
+    <div className="bubble bubble3"></div>
       <div className="callToAction">
         <div className="canvas-container">
           {vendorLoading && (
@@ -69,7 +97,7 @@ const Home = () => {
             </div>
           )}
           <Canvas
-            camera={{ position: [0, 2, 4] }}
+            camera={{ position: [0, 2, 4],  fov:60}}
             onCreated={() => setVendorLoading(false)}
           >
             <directionalLight position={[-1, 1, 1]} intensity={1} />
@@ -85,12 +113,17 @@ const Home = () => {
             <FoodVendor />
           </Canvas>
         </div>
+        <div className="callToAction-wrapper">
         <div className='callToAction-text'>
-          <p>Get your <span>vendor</span> and lets start working</p>
-          <Link to='/recipes'><button className="btn btn-dark">Get Started!</button></Link>
+          <p>Get your <span style={{color: "#EDD551"}}>vendor</span> and lets start working</p>
+          <img className='arrow' src="/images/arrow.png" alt="" />
+          <Link to='/recipes'><button className="home-btn" >Get Started!</button></Link>
+        </div>
         </div>
       </div>
+      </section>
     </div>
+    </>
   );
 };
 

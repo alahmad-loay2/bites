@@ -1,16 +1,28 @@
 .layout-container {
     min-height: 100dvh;
     min-width: 100dvw;
-    background: linear-gradient(140deg, var(--gradient-start), var(--gradient-end));
+    background: var(--primary-color)
   }
 
 nav {
+    height: 140px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 50px;
-    padding: 40px;
+    width: 80%;
+    max-width: 1500px;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    padding: 20px 40px;
   }
 
   nav .hamburger-icon {
@@ -69,6 +81,33 @@ nav {
     height: 0;
   }
 
+  .adminNav {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .btnStyle {
+    border: none;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .offcanvas-body {
+    flex-direction: column;
+    display: flex;
+    gap: 15px;
+  }
+
+  .offcanvasAdmin {
+    display: flex;
+    gap: 10px;
+  }
+
   .account-loading {
     min-height: 100dvh;
     display: flex;
@@ -94,25 +133,6 @@ nav {
     }
 }
   
-  .divider {
-    padding: 10px;
-    display: flex;
-    letter-spacing: 2px;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  
-  .divider-icon {
-    animation: bounce 1.5s infinite ease-in-out;
-  }
-  
-  .divider svg {
-    color: var(--accent-color);
-  }
-
   @keyframes bounce {
     0%, 100% {
       transform: translateY(-2px);
@@ -133,13 +153,13 @@ nav {
     display: block;
   }
 
+  .nav-inner {
+    width: 100%;
+    gap: 0;
+  }
+
   .nav-wrapper{
     display: none;
-  }
-  nav {
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 15px;
   }
 
   .offcanvas{

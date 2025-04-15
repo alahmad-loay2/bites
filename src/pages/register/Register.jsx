@@ -72,12 +72,12 @@ const Register = () => {
                         <input type="password" placeholder="Enter password"
                         onChange={(e) => setPassword(e.target.value)}  required />
                     </div>
-                    <button type="submit" className="btn btn-dark">Register</button>
+                    <button type="submit" className="btnStyle">Register</button>
                 </form>
 
                 <div>
                     <Link to='/login'><button className="btn btn-link">Have an account? Login</button></Link>
-                    <Link to='/'><button className="btn btn-dark">Back to Home</button></Link>
+                    <Link to='/'><button className="btnStyle">Back to Home</button></Link>
                 </div>
             </div>
         </div>

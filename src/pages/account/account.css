@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(140deg, var(--gradient-start), var(--gradient-end));
+    background: var(--primary-color);
     position: relative;
 }
 
@@ -17,7 +17,7 @@
     align-items: center;
     gap: 8px;
     background: var(--accent-two-color);
-    color: var(--secondary-color);
+    color: white;
     border: none;
     padding: 12px 24px;
     border-radius: 12px;
@@ -33,41 +33,17 @@
 }
 
 .account-card {
-    background-color: var(--secondary-color);
+    background-color: #f9ceff3b;
     border-radius: 16px;
     padding: 32px;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px var(--accent-color);
     position: relative;
     margin-top: 40px;
     overflow: hidden;
 }
 
-.account-card::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, var(--gradient-end) 10%, transparent 10%),
-                radial-gradient(circle, var(--gradient-end) 10%, transparent 10%);
-    background-position: 0 0, 25px 25px;
-    background-size: 50px 50px;
-    opacity: 0.1;
-    z-index: 0;
-    animation: moveBackground 15s linear infinite;
-}
-
-@keyframes moveBackground {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 .account-header {
     display: flex;
@@ -80,7 +56,7 @@
 }
 
 .account-icon {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
@@ -98,7 +74,7 @@
     left: 0;
     width: 40px;
     height: 3px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     border-radius: 2px;
 }
 
@@ -145,7 +121,7 @@
 }
 
 .status-badge[data-status="active"] {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
 }
 

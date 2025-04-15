@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from "@react-three/drei";
 
-
 const Robot = () => {
     const { scene } = useGLTF("/models/robot.glb");
     const robotRef = useRef();
@@ -48,7 +47,12 @@ const Robot = () => {
 
     return (
         <>
-        <primitive onClick={handleSmile} ref={robotRef} position={[-2, 0, 0]} object={scene} scale={1.7} />
+        <primitive 
+        onClick={handleSmile} 
+        ref={robotRef} 
+        position={[-2, 0, 0]} 
+        object={scene} 
+        scale={1.65} />
         <mesh position={[0.6, -2.2, -1.2]} rotation={[-Math.PI / 2, 0, 0]}>
         <circleGeometry args={[1.4, 32]} />
         <meshStandardMaterial color="black" transparent opacity={0.1} />
