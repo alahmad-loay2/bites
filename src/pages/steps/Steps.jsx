@@ -13,7 +13,6 @@ import { useInView } from 'react-intersection-observer';
 import Basket from '../../components/Basket'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { Physics } from "@react-three/cannon";
 
 
 const Steps = () => {
@@ -45,9 +44,10 @@ const Steps = () => {
   const handleArrowClick = () => {
     setShowPopup(true);
     setTimeout(() => {
-      navigate("/cooking");
-    }, 3000);
+      navigate("/cooking", { state: { recipe } });
+    }, 3700);
   };
+  
   
 
   return (
@@ -60,12 +60,7 @@ const Steps = () => {
             <div className="title-container">
               <div className="steps-title">
                 <h2>{recipe.title}</h2>
-                <p>
-                  Creamy, flavorful, and comforting—this Chicken Stroganoff is a
-                  quick and easy twist on the classic dish. Perfectly tender
-                  chicken in a rich, savory sauce, served over rice for a hearty
-                  meal!
-                </p>
+                <p>{recipe.description}</p>
               </div>
               <div className="pan-model">
               <Pan />
@@ -77,33 +72,33 @@ const Steps = () => {
                     <img className = "description-icon"src="/images/globe.png" alt=""/>
                     <div className="description-items">
                         <li>Cuisine</li>
-                        <li>Russian</li>
+                        <li>{recipe.cuisine}</li>
                     </div>
                 </div>
                 <div className="description-list">
                     <img className = "description-icon"src="/images/time-left.png"/>
                     <div className="description-items">
                         <li>Total Time</li>
-                        <li>35-40 minutes</li>
+                        <li>{recipe.totalTime} minutes</li>
                     </div>
                 </div>
                 <div className="description-list">
                     <img  className = "description-icon"src="/images/serving-dish.png"/>
                     <div className="description-items">
                         <li>Servings</li>
-                        <li>3-4</li>
+                        <li>{recipe.servings} people</li>
                     </div>
                 </div>
                 <div className="description-list">
                     <img className = "description-icon" src="/images/meal.png"/>
                     <div className="description-items">
                         <li>Preparation Time</li>
-                        <li>10-20 minutes</li>
+                        <li>{recipe.prepTime} minutes</li>
                     </div>
                 </div> 
             </div>
             <div className="section">
-              <img className = "frame-background"src="/images/Frame 4.png" alt="" />
+              <img className = "frame-background"src="/images/Frame 5.png" alt="" />
           <div className="robot-section">
           <div className="robot-container">
           {robotLoading && (
@@ -152,11 +147,11 @@ const Steps = () => {
               </ul>
 
               <div className="arrow-container">
+              <p>Go to cooking page!</p>
                 <button
                 onClick={handleArrowClick}
-                style={{ background: "none", border: "none", cursor: "pointer" }}
-                aria-label="Go to cooking page"
-                  >
+                style={{ background: "none", border: "none", cursor: "pointer" }}>
+                  
               <img
                 className="arrow-ingredients"
                 src="/images/arrow.png"
@@ -173,13 +168,13 @@ const Steps = () => {
     <div className="popup-content">
 
       <Canvas
-        camera={{ position: [0, 1, 4], fov: 50 }}
+        camera={{ position: [0, 1.8, 4], fov: 50 }}
         style={{ width: "600px", height: "400px" }}
       >
         <ambientLight intensity={0.8} />
         <Environment preset="city" />
         <OrbitControls enableZoom={false} enableRotate={false} enablePan={false}/>
-        <Basket position={[0, -1, 0]} scale={[0.2, 0.2, 0.2]} />
+        <Basket position={[0, -1, 0]} scale={[0.43, 0.43, 0.43]} />
       </Canvas>
       <p>Preparing your cooking station...</p>
         </div>
@@ -187,11 +182,7 @@ const Steps = () => {
       )}
       </div>
 
-          <div className="steps-container">
-            {recipe.steps?.map((step, index) => (
-              <div key={index}>{step}</div>
-            ))}
-          </div>
+        
         </>
       ) : (
         <p>Loading...</p>

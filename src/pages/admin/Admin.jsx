@@ -12,6 +12,7 @@ const Admin = () => {
     const [title, setTitle] = useState("");
     const [totalTime, setTotalTime] = useState(null)
     const[prepTime, setPrepTime] = useState(null)
+    const[servings,setServings] = useState(null)
     const [description, setDescription] = useState("")
     const[ingredients, setIngredients] = useState([''])
     const [img, setImg] = useState(null);
@@ -68,7 +69,7 @@ const Admin = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        if(!title || !ingredients[0] || !steps[0] || !img || !cuisine || !totalTime || !description || !prepTime){
+        if(!title || !ingredients[0] || !steps[0] || !img || !cuisine || !totalTime || !description || !prepTime ||!servings){
             alert("missing")
             return
         }
@@ -79,6 +80,7 @@ const Admin = () => {
                 cuisine,
                 paid,
                 totalTime,
+                servings,
                 prepTime,
                 description,
                 title,
@@ -166,6 +168,15 @@ return (
                 className="form-input"
                 placeholder="prep time in minutes"
               />
+            </div>
+            
+            <div className='form-group'>
+              <label className='form-label'>Servings</label>
+              <input type="number"
+              value={servings}
+              onChange={(e) => setServings(e.target.value)}
+              className='form-input'
+              placeholder='number of servings'/>
             </div>
 
             <div className="form-group">

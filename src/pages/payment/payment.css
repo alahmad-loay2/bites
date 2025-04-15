@@ -31,7 +31,7 @@
 }
 
 .current-plan {
-    background-color:#A8D7A7; 
+    background-color:var(--secondary-color); 
     color: #F6F2E9;
 }
 .current-plan:hover {
@@ -58,7 +58,7 @@
 
 .other-plan:hover {
     transform: scale(1.05);
-    box-shadow: 5px 5px 0 #A8D7A7; 
+    box-shadow: 5px 5px 0 var(--accent-color); 
 }
 
 .payment-details{
@@ -71,7 +71,7 @@
 }
 .icon{
     padding-right: 10px;
-    color: rgb(19, 169, 57);
+    color: var(--accent-color);
 }
 .buttons{
     margin-top: 30px;
@@ -93,7 +93,7 @@
     border-radius: 30px;
     border: 0;
     padding: 7px;
-    background-color: #A8D7A7;
+    background-color: var(--secondary-color);
 }
 .buttons button:hover{
     background-color: #979797;

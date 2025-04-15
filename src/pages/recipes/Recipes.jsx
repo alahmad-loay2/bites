@@ -7,7 +7,7 @@ import getUserInfo from '../../firebase/getUserInfo';
 import { getDocs, collection, query, where, limit, startAfter } from 'firebase/firestore';
 import { db } from "../../firebase/config";
 import { SkeletonGroup } from '../../components/RecipeCardSkeleton';
-import { ChefHat } from 'lucide-react';
+
 
 const Recipes = () => {
     const navigate = useNavigate();

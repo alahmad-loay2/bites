@@ -1,10 +1,20 @@
-import React from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useAnimations } from '@react-three/drei';
+import { useEffect, useRef } from 'react';
 
-const Basket = ({ position = [0, 0, 0], scale = 1 }) => {
-  const { scene } = useGLTF("/models/basket.glb");
+export default function Basket(props) {
+  const group = useRef();
+  const { scene, animations } = useGLTF('/models/basket2.glb');
+  const { actions } = useAnimations(animations, group);
 
-  return <primitive object={scene} position={position} scale={scale} />;
-};
+  useEffect(() => {
+    
+    if (actions) {
+      Object.values(actions).forEach((action) => {
+        action.timeScale = 0.7;
+        action.reset().play();
+      });
+    }
+  }, [actions]);
 
-export default Basket;
+  return <primitive ref={group} object={scene} {...props} />;
+}

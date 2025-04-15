@@ -6,7 +6,7 @@
 
 .sidebar {
   width: 250px;
-  background-color: #dbb3d1;
+  background-color: var(--secondary-color);
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -197,7 +197,7 @@
 
 .submit-btn {
   width: 100%;
-  background-color: #dbb3d1;
+  background-color: var(--secondary-color);
   color: rgb(0, 0, 0);
   border: none;
   padding: 14px;
